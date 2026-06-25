@@ -1,0 +1,10 @@
+/**
+ * COMPONENT THEME OVERRIDES
+ * 
+ * Keep design tokens, custom utility keyframes, or external layout 
+ * components styles (e.g. date-picker widgets styling) here.
+ */
+
+:root {
+  --scrollbar-width: 8px;
+}
