@@ -1,0 +1,20 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Enterprise API Template Spec",
+    "version": "1.0.0",
+    "description": "Standard REST API endpoint specifications for fullstack-enterprise-template"
+  },
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "summary": "Authenticate user session",
+        "responses": {
+          "200": {
+            "description": "Successful authentication"
+          }
+        }
+      }
+    }
+  }
+}
