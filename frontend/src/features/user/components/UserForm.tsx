@@ -29,7 +29,7 @@ export const UserForm: React.FC<UserFormProps> = ({
 
   const handleFormSubmit = async (data: UserFormValues) => {
     setValidationErrors({});
-    
+
     // Validate values using Zod schema
     const result = userFormSchema.safeParse(data);
     if (!result.success) {
@@ -45,9 +45,11 @@ export const UserForm: React.FC<UserFormProps> = ({
 
     try {
       await onSubmit(data);
-    } catch (err: any) {
+    } catch (err) {
+      const error = err as { response?: { data?: { message?: string } }; message?: string };
       setValidationErrors({
-        form: err.response?.data?.message || err.message || 'An error occurred during submission.',
+        form:
+          error.response?.data?.message || error.message || 'An error occurred during submission.',
       });
     }
   };
@@ -62,7 +64,10 @@ export const UserForm: React.FC<UserFormProps> = ({
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="firstName" className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
+          <label
+            htmlFor="firstName"
+            className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5"
+          >
             First Name
           </label>
           <input
@@ -78,7 +83,10 @@ export const UserForm: React.FC<UserFormProps> = ({
         </div>
 
         <div>
-          <label htmlFor="lastName" className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
+          <label
+            htmlFor="lastName"
+            className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5"
+          >
             Last Name
           </label>
           <input
@@ -95,7 +103,10 @@ export const UserForm: React.FC<UserFormProps> = ({
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
+        <label
+          htmlFor="email"
+          className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5"
+        >
           Email Address
         </label>
         <input
@@ -111,7 +122,10 @@ export const UserForm: React.FC<UserFormProps> = ({
       </div>
 
       <div>
-        <label htmlFor="role" className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
+        <label
+          htmlFor="role"
+          className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5"
+        >
           Workspace Access Role
         </label>
         <select
@@ -127,7 +141,10 @@ export const UserForm: React.FC<UserFormProps> = ({
       </div>
 
       <div>
-        <label htmlFor="password" className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
+        <label
+          htmlFor="password"
+          className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5"
+        >
           Password {initialValues && '(leave empty to keep unchanged)'}
         </label>
         <input

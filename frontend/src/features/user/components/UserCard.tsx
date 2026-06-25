@@ -51,7 +51,9 @@ export const UserCard: React.FC<UserCardProps> = ({
           </div>
         </div>
 
-        <span className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full border ${getRoleColor(user.role)}`}>
+        <span
+          className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full border ${getRoleColor(user.role)}`}
+        >
           {user.role}
         </span>
       </div>

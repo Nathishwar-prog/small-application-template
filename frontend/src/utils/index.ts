@@ -1,6 +1,6 @@
 /**
  * STATELESS CLIENT UTILITIES
- * 
+ *
  * Put pure, framework-agnostic helper algorithms here.
  */
 

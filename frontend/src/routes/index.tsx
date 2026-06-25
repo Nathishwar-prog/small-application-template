@@ -46,7 +46,9 @@ export const AppLayout: React.FC = () => {
         {/* Brand Header */}
         <div className="h-16 flex items-center gap-2.5 px-6 border-b border-slate-900">
           <ShieldCheck className="w-6 h-6 text-indigo-500" />
-          <span className="font-bold font-sans tracking-wide text-indigo-100">Enterprise Template</span>
+          <span className="font-bold font-sans tracking-wide text-indigo-100">
+            Enterprise Template
+          </span>
         </div>
 
         {/* Navigation Links */}
@@ -98,7 +100,9 @@ export const AppLayout: React.FC = () => {
             </div>
             <div className="truncate">
               <span className="block text-xs font-semibold text-slate-300 truncate">
-                {user?.firstName ? `${user.firstName} ${user.lastName || ''}`.trim() : 'Active Member'}
+                {user?.firstName
+                  ? `${user.firstName} ${user.lastName || ''}`.trim()
+                  : 'Active Member'}
               </span>
               <span className="block text-[10px] text-slate-500 truncate">{user?.email}</span>
             </div>
@@ -132,10 +136,12 @@ export const AppLayout: React.FC = () => {
                 <div className="space-y-4">
                   <h2 className="text-2xl font-bold">Welcome to your Dashboard</h2>
                   <p className="text-slate-400 text-sm max-w-2xl">
-                    This is a pre-configured enterprise landing template. Adjust routes and views under `frontend/src/routes/index.tsx` to mount your domain modules.
+                    This is a pre-configured enterprise landing template. Adjust routes and views
+                    under `frontend/src/routes/index.tsx` to mount your domain modules.
                   </p>
                   <div className="h-48 border border-dashed border-slate-800 rounded-xl flex items-center justify-center text-slate-600 text-sm">
-                    Dashboard Panels / Analytics Widgets Placeholder (TODO marker for future projects)
+                    Dashboard Panels / Analytics Widgets Placeholder (TODO marker for future
+                    projects)
                   </div>
                 </div>
               }
@@ -161,7 +167,9 @@ export const AppLayout: React.FC = () => {
               element={
                 <div className="text-center py-12 text-slate-400">
                   <h3 className="text-lg font-bold text-rose-400">Access Denied</h3>
-                  <p className="text-sm mt-1">You do not have administrative privileges to view this directory.</p>
+                  <p className="text-sm mt-1">
+                    You do not have administrative privileges to view this directory.
+                  </p>
                 </div>
               }
             />
@@ -189,7 +197,7 @@ export const LoginPage: React.FC = () => {
         role,
         permissions: role === 'SUPER_ADMIN' ? ['*'] : ['users:read'],
       },
-      'simulated-access-token'
+      'simulated-access-token',
     );
     navigate('/');
   };
@@ -219,7 +227,8 @@ export const LoginPage: React.FC = () => {
         </div>
 
         <p className="text-[10px] text-slate-500">
-          This is a template sign-in verification page. Hook up `userApi.login()` inside submit callbacks for production setups.
+          This is a template sign-in verification page. Hook up `userApi.login()` inside submit
+          callbacks for production setups.
         </p>
       </div>
     </div>

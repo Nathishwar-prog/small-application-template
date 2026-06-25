@@ -21,14 +21,14 @@ const getFormats = () => {
     return combine(
       timestamp(),
       errors({ stack: true }),
-      json() // Log json logs in production for scraping/ELK/Datadog
+      json(), // Log json logs in production for scraping/ELK/Datadog
     );
   }
   return combine(
     colorize(),
     timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
     errors({ stack: true }),
-    devFormat
+    devFormat,
   );
 };
 

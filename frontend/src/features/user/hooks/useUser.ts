@@ -45,10 +45,10 @@ export const useUser = () => {
     profile: profileQuery.data,
     isLoadingProfile: profileQuery.isLoading,
     profileError: profileQuery.error,
-    
+
     updateProfile: updateProfileMutation.mutateAsync,
     isUpdatingProfile: updateProfileMutation.isPending,
-    
+
     deleteUser: deleteUserMutation.mutateAsync,
     isDeletingUser: deleteUserMutation.isPending,
   };

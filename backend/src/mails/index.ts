@@ -4,7 +4,7 @@ import logger from '../logger/winston.logger';
 
 /**
  * EMAIL DISPATCH SERVICE
- * 
+ *
  * Configures the Nodemailer transport wrapper.
  */
 const transporter = nodemailer.createTransport({

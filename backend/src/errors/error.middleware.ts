@@ -9,11 +9,11 @@ export const globalErrorHandler = (
   req: Request,
   res: Response,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _next: NextFunction
+  _next: NextFunction,
 ): Response => {
   let statusCode = err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR;
   let message = err.message || 'An unexpected error occurred';
-  let errors = err.errors || undefined;
+  const errors = err.errors || undefined;
 
   // Log the error
   logger.error(`${req.method} ${req.originalUrl} - Error: ${err.message}`, {

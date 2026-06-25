@@ -38,7 +38,7 @@ apiClient.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 // --- Response Interceptor ---
@@ -53,7 +53,10 @@ apiClient.interceptors.response.use(
     }
 
     // Bypass if the failed request was the login/auth endpoint itself
-    if (originalRequest.url?.includes('/auth/login') || originalRequest.url?.includes('/auth/refresh')) {
+    if (
+      originalRequest.url?.includes('/auth/login') ||
+      originalRequest.url?.includes('/auth/refresh')
+    ) {
       return Promise.reject(error);
     }
 
@@ -77,20 +80,16 @@ apiClient.interceptors.response.use(
 
     try {
       // Trigger token refresh endpoint (relies on HttpOnly cookie)
-      const response = await axios.post(
-        `${API_URL}/auth/refresh`,
-        {},
-        { withCredentials: true }
-      );
+      const response = await axios.post(`${API_URL}/auth/refresh`, {}, { withCredentials: true });
 
       const { accessToken } = response.data.data;
-      
+
       // Update store state with new token
       useAuthStore.getState().setToken(accessToken);
 
       // Resolve queued requests
       processQueue(null, accessToken);
-      
+
       // Retry original request
       if (originalRequest.headers) {
         originalRequest.headers.Authorization = `Bearer ${accessToken}`;
@@ -104,7 +103,7 @@ apiClient.interceptors.response.use(
     } finally {
       isRefreshing = false;
     }
-  }
+  },
 );
 
 export default apiClient;

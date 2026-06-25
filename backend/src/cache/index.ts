@@ -1,6 +1,6 @@
 /**
  * CACHE SERVICES ADAPTER
- * 
+ *
  * TODO: Setup Redis client or an in-memory cache engine (like node-cache).
  * Centralizes cache GET/SET operations to avoid hammering the relational database.
  */

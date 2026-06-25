@@ -1,7 +1,7 @@
 /**
  * CENTRALIZED NOTIFICATION SERVICE
- * 
- * TODO: Integrate SMS providers (Twilio), Mobile push notifications (Firebase Cloud Messaging), 
+ *
+ * TODO: Integrate SMS providers (Twilio), Mobile push notifications (Firebase Cloud Messaging),
  * or internal App Websocket alerts.
  */
 

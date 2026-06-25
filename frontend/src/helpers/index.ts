@@ -1,6 +1,6 @@
 /**
  * CLIENT DATA FORMATTING HELPERS
- * 
+ *
  * Create formatting/mapping functions here (e.g. date conversion strings,
  * clean phone formatting, file byte conversion).
  */

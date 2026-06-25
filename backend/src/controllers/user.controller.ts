@@ -18,7 +18,10 @@ export class UserController {
 
   public login = async (req: Request, res: Response): Promise<Response> => {
     const { email, password } = req.body;
-    const { accessToken, refreshToken, user } = await this.userService.authenticate(email, password);
+    const { accessToken, refreshToken, user } = await this.userService.authenticate(
+      email,
+      password,
+    );
 
     // Save refreshToken to HttpOnly Cookie
     const { TokenUtils } = await import('../auth/token.utils');
@@ -42,7 +45,8 @@ export class UserController {
       throw new BadRequestError('Refresh token is required');
     }
 
-    const { accessToken, newRefreshToken } = await this.userService.refreshAccessToken(refreshToken);
+    const { accessToken, newRefreshToken } =
+      await this.userService.refreshAccessToken(refreshToken);
     TokenUtils.setRefreshCookie(res, newRefreshToken);
 
     return ResponseHelper.success({

@@ -8,19 +8,14 @@ export const UserProfilePage: React.FC = () => {
   const { profile, isLoadingProfile, profileError, updateProfile, isUpdatingProfile } = useUser();
 
   const handleUpdate = async (values: UserFormValues) => {
-    try {
-      await updateProfile({
-        email: values.email,
-        firstName: values.firstName || undefined,
-        lastName: values.lastName || undefined,
-        role: values.role,
-        password: values.password || undefined,
-      });
-      alert('Profile updated successfully!');
-    } catch (error) {
-      // Handled inside UserForm component validation state
-      throw error;
-    }
+    await updateProfile({
+      email: values.email,
+      firstName: values.firstName || undefined,
+      lastName: values.lastName || undefined,
+      role: values.role,
+      password: values.password || undefined,
+    });
+    alert('Profile updated successfully!');
   };
 
   if (isLoadingProfile) {
@@ -35,7 +30,9 @@ export const UserProfilePage: React.FC = () => {
     return (
       <div className="glass-panel border-rose-500/20 bg-rose-500/5 text-rose-300 rounded-xl p-6 text-center max-w-lg mx-auto">
         <h4 className="font-semibold text-lg">Error Loading Profile</h4>
-        <p className="text-sm mt-1">{profileError?.message || 'Could not fetch your profile details.'}</p>
+        <p className="text-sm mt-1">
+          {profileError?.message || 'Could not fetch your profile details.'}
+        </p>
       </div>
     );
   }
@@ -54,11 +51,7 @@ export const UserProfilePage: React.FC = () => {
             Modify details, update login credentials, or adjust your workspace role.
           </p>
 
-          <UserForm
-            initialValues={profile}
-            onSubmit={handleUpdate}
-            isLoading={isUpdatingProfile}
-          />
+          <UserForm initialValues={profile} onSubmit={handleUpdate} isLoading={isUpdatingProfile} />
         </div>
       </div>
 
@@ -70,17 +63,21 @@ export const UserProfilePage: React.FC = () => {
             <Shield className="w-5 h-5 text-indigo-400" />
             <h3>Access Control</h3>
           </div>
-          
+
           <div className="space-y-3">
             <div>
-              <span className="block text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Active Role</span>
+              <span className="block text-[10px] text-slate-500 uppercase tracking-wider font-semibold">
+                Active Role
+              </span>
               <span className="inline-block mt-1 text-xs px-2 py-0.5 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded font-bold uppercase">
                 {profile.role}
               </span>
             </div>
 
             <div>
-              <span className="block text-[10px] text-slate-500 uppercase tracking-wider font-semibold mb-2">Granted Permissions</span>
+              <span className="block text-[10px] text-slate-500 uppercase tracking-wider font-semibold mb-2">
+                Granted Permissions
+              </span>
               <div className="flex flex-wrap gap-1.5">
                 {profile.permissions.map((perm) => (
                   <span
@@ -101,9 +98,10 @@ export const UserProfilePage: React.FC = () => {
             <Key className="w-5 h-5 text-indigo-400" />
             <h3>Token Information</h3>
           </div>
-          
+
           <p className="text-xs text-slate-400 leading-relaxed">
-            Your login session is secured using standard JSON Web Tokens. Access tokens rotate automatically, and refresh cookies are stored securely via HTTPOnly configurations.
+            Your login session is secured using standard JSON Web Tokens. Access tokens rotate
+            automatically, and refresh cookies are stored securely via HTTPOnly configurations.
           </p>
         </div>
       </div>

@@ -1,7 +1,7 @@
 /**
  * CLIENT STATIC CONSTANTS Blueprint
- * 
- * Keep static system parameters here (e.g. routes list, navigation structures, 
+ *
+ * Keep static system parameters here (e.g. routes list, navigation structures,
  * locale configs, storage keys).
  */
 

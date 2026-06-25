@@ -23,7 +23,7 @@ app.use(
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-  })
+  }),
 );
 
 // Compress response bodies for enhanced transmission performance
@@ -46,7 +46,9 @@ app.use(config.API_PREFIX, apiRouter);
 
 // Fallback Route for handling unmatched endpoints (404)
 app.all('*', (req, _res, next) => {
-  next(new NotFoundError(`Requested endpoint (${req.method} ${req.originalUrl}) could not be found`));
+  next(
+    new NotFoundError(`Requested endpoint (${req.method} ${req.originalUrl}) could not be found`),
+  );
 });
 
 // --- 3. Global Error Handling ---

@@ -2,8 +2,8 @@ import React from 'react';
 
 /**
  * APPLICATION INNER LAYOUT HEADER
- * 
- * Fits at the top of the main layout, exposing page locations, breadcrumbs, 
+ *
+ * Fits at the top of the main layout, exposing page locations, breadcrumbs,
  * or search bars.
  */
 interface HeaderProps {

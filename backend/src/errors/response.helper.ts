@@ -25,7 +25,11 @@ export class ResponseHelper {
     });
   }
 
-  public static created<T>(res: Response, data?: T, message: string = 'Created successfully'): Response {
+  public static created<T>(
+    res: Response,
+    data?: T,
+    message: string = 'Created successfully',
+  ): Response {
     return this.success({
       res,
       statusCode: StatusCodes.CREATED,

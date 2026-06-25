@@ -5,7 +5,11 @@ export class AppError extends Error {
   public readonly isOperational: boolean;
   public readonly errors?: unknown;
 
-  constructor(message: string, statusCode: number = StatusCodes.INTERNAL_SERVER_ERROR, errors?: unknown) {
+  constructor(
+    message: string,
+    statusCode: number = StatusCodes.INTERNAL_SERVER_ERROR,
+    errors?: unknown,
+  ) {
     super(message);
     this.statusCode = statusCode;
     this.isOperational = true; // Indicates error is anticipated/controlled

@@ -49,7 +49,9 @@ export const UsersListPage: React.FC = () => {
           </button>
 
           <button
-            onClick={() => alert('Add User dialog (TODO marker for implementation in future projects)')}
+            onClick={() =>
+              alert('Add User dialog (TODO marker for implementation in future projects)')
+            }
             className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
           >
             <UserPlus className="w-4 h-4" />
@@ -61,17 +63,23 @@ export const UsersListPage: React.FC = () => {
       {/* Directory Statistics */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
         <div className="glass-panel rounded-xl p-4.5">
-          <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Total Accounts</span>
+          <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
+            Total Accounts
+          </span>
           <div className="text-2xl font-bold text-slate-200 mt-1">{users?.length || 0}</div>
         </div>
         <div className="glass-panel rounded-xl p-4.5">
-          <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Administrator Roles</span>
+          <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
+            Administrator Roles
+          </span>
           <div className="text-2xl font-bold text-amber-400 mt-1">
             {users?.filter((u) => u.role === 'ADMIN' || u.role === 'SUPER_ADMIN').length || 0}
           </div>
         </div>
         <div className="glass-panel rounded-xl p-4.5">
-          <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Standard Users</span>
+          <span className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
+            Standard Users
+          </span>
           <div className="text-2xl font-bold text-sky-400 mt-1">
             {users?.filter((u) => u.role === 'USER').length || 0}
           </div>

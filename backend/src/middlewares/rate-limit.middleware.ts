@@ -3,7 +3,7 @@ import logger from '../logger/winston.logger';
 
 /**
  * RATE LIMITER MIDDLEWARE (PLACEHOLDER)
- * 
+ *
  * TODO: Integrate express-rate-limit or Redis-based rate limiting for production setups.
  * This placeholder shows where request rate limiting logic should be applied to shield REST endpoints.
  */

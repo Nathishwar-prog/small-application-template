@@ -2,7 +2,7 @@ import { Role } from '@prisma/client';
 
 /**
  * APPLICATION PERMISSION CONFIGURATIONS
- * 
+ *
  * Maps user roles to arrays of fine-grained action tags.
  */
 export const permissionsMap: Record<Role, string[]> = {
@@ -15,14 +15,8 @@ export const permissionsMap: Record<Role, string[]> = {
     'settings:read',
     'settings:write',
   ],
-  MANAGER: [
-    'users:read',
-    'reports:view',
-    'settings:read',
-  ],
-  USER: [
-    'users:read',
-  ],
+  MANAGER: ['users:read', 'reports:view', 'settings:read'],
+  USER: ['users:read'],
 };
 
 /**

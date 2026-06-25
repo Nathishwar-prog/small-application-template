@@ -4,7 +4,11 @@ import { UserService } from '../services/user.service';
 import { UserRepository } from '../repositories/user.repository';
 import { validate } from '../validators/validate.middleware';
 import { authenticate, requireRole, requirePermission } from '../auth/auth.middleware';
-import { createUserSchema, updateUserSchema, userIdParamSchema } from '../validators/user.validation';
+import {
+  createUserSchema,
+  updateUserSchema,
+  userIdParamSchema,
+} from '../validators/user.validation';
 import { asyncHandler } from '../errors/async.handler';
 
 const router = Router();
@@ -18,36 +22,23 @@ const userController = new UserController(userService);
 router.post(
   '/register',
   validate({ body: createUserSchema }),
-  asyncHandler(userController.register)
+  asyncHandler(userController.register),
 );
 
-router.post(
-  '/login',
-  asyncHandler(userController.login)
-);
+router.post('/login', asyncHandler(userController.login));
 
-router.post(
-  '/refresh',
-  asyncHandler(userController.refresh)
-);
+router.post('/refresh', asyncHandler(userController.refresh));
 
-router.post(
-  '/logout',
-  asyncHandler(userController.logout)
-);
+router.post('/logout', asyncHandler(userController.logout));
 
 // --- Protected Endpoints ---
-router.get(
-  '/me',
-  authenticate,
-  asyncHandler(userController.getProfile)
-);
+router.get('/me', authenticate, asyncHandler(userController.getProfile));
 
 router.patch(
   '/me',
   authenticate,
   validate({ body: updateUserSchema }),
-  asyncHandler(userController.updateProfile)
+  asyncHandler(userController.updateProfile),
 );
 
 // --- Admin / Management Endpoints ---
@@ -55,7 +46,7 @@ router.get(
   '/',
   authenticate,
   requireRole(['ADMIN', 'SUPER_ADMIN']),
-  asyncHandler(userController.getUserList)
+  asyncHandler(userController.getUserList),
 );
 
 router.delete(
@@ -64,7 +55,7 @@ router.delete(
   requireRole(['SUPER_ADMIN']),
   requirePermission(['users:delete']),
   validate({ params: userIdParamSchema }),
-  asyncHandler(userController.deleteUser)
+  asyncHandler(userController.deleteUser),
 );
 
 export default router;

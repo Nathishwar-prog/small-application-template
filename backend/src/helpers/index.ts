@@ -1,6 +1,6 @@
 /**
  * APPLICATION HELPER SHORTCUTS
- * 
+ *
  * Create helper wrappers that integrate with framework dependencies (e.g. Express Request parsers,
  * IP checkers, or response decorators).
  */

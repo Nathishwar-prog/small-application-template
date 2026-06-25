@@ -33,7 +33,9 @@ export const UserList: React.FC<UserListProps> = ({
     return (
       <div className="glass-panel border-rose-500/20 bg-rose-500/5 text-rose-300 rounded-xl p-6 text-center max-w-lg mx-auto">
         <h4 className="font-semibold text-lg">Error Loading Users</h4>
-        <p className="text-sm text-rose-400/80 mt-1">{error.message || 'An error occurred during fetch.'}</p>
+        <p className="text-sm text-rose-400/80 mt-1">
+          {error.message || 'An error occurred during fetch.'}
+        </p>
       </div>
     );
   }

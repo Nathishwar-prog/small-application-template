@@ -52,13 +52,27 @@ export class UserRepository implements IUserRepository {
   public async update(id: string, data: UpdateUserDto & { passwordHash?: string }): Promise<User> {
     const updateData: Record<string, unknown> = {};
 
-    if (data.email !== undefined) updateData.email = data.email;
-    if (data.passwordHash !== undefined) updateData.password = data.passwordHash;
-    if (data.firstName !== undefined) updateData.firstName = data.firstName;
-    if (data.lastName !== undefined) updateData.lastName = data.lastName;
-    if (data.role !== undefined) updateData.role = data.role;
-    if (data.permissions !== undefined) updateData.permissions = data.permissions;
-    if (data.isActive !== undefined) updateData.isActive = data.isActive;
+    if (data.email !== undefined) {
+      updateData.email = data.email;
+    }
+    if (data.passwordHash !== undefined) {
+      updateData.password = data.passwordHash;
+    }
+    if (data.firstName !== undefined) {
+      updateData.firstName = data.firstName;
+    }
+    if (data.lastName !== undefined) {
+      updateData.lastName = data.lastName;
+    }
+    if (data.role !== undefined) {
+      updateData.role = data.role;
+    }
+    if (data.permissions !== undefined) {
+      updateData.permissions = data.permissions;
+    }
+    if (data.isActive !== undefined) {
+      updateData.isActive = data.isActive;
+    }
 
     return prisma.user.update({
       where: { id },
@@ -72,7 +86,11 @@ export class UserRepository implements IUserRepository {
     });
   }
 
-  public async saveRefreshToken(userId: string, token: string, expiresAt: Date): Promise<RefreshToken> {
+  public async saveRefreshToken(
+    userId: string,
+    token: string,
+    expiresAt: Date,
+  ): Promise<RefreshToken> {
     return prisma.refreshToken.create({
       data: {
         token,

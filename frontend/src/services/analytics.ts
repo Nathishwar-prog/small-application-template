@@ -1,6 +1,6 @@
 /**
  * EXTERNAL API SERVICES INTEGRATIONS
- * 
+ *
  * TODO: Integrate tracking clients (e.g., Google Analytics, Segment, Amplitude, Sentry).
  * Centralizes telemetry actions.
  */

@@ -23,11 +23,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Routes>
           {/* Main Auth Console Route */}
           <Route path="/login" element={<LoginPage />} />
-          
+
           {/* Base Layout containing nested dashboards & protected layouts */}
           <Route path="/*" element={<AppLayout />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

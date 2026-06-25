@@ -3,7 +3,12 @@ import { IUserRepository } from '../repositories/user.repository';
 import { CreateUserDto, UpdateUserDto } from '../dto/user.dto';
 import { PasswordUtils } from '../auth/password.utils';
 import { TokenUtils, TokenPayload } from '../auth/token.utils';
-import { BadRequestError, ConflictError, NotFoundError, UnauthorizedError } from '../errors/app-error';
+import {
+  BadRequestError,
+  ConflictError,
+  NotFoundError,
+  UnauthorizedError,
+} from '../errors/app-error';
 
 export class UserService {
   private userRepository: IUserRepository;
@@ -42,7 +47,10 @@ export class UserService {
     });
   }
 
-  public async authenticate(email: string, password: string): Promise<{ accessToken: string; refreshToken: string; user: User }> {
+  public async authenticate(
+    email: string,
+    password: string,
+  ): Promise<{ accessToken: string; refreshToken: string; user: User }> {
     const user = await this.userRepository.findByEmail(email);
     if (!user || !user.isActive) {
       throw new UnauthorizedError('Invalid login credentials provided');
@@ -75,7 +83,9 @@ export class UserService {
     return { accessToken, refreshToken, user };
   }
 
-  public async refreshAccessToken(token: string): Promise<{ accessToken: string; newRefreshToken: string }> {
+  public async refreshAccessToken(
+    token: string,
+  ): Promise<{ accessToken: string; newRefreshToken: string }> {
     const storedToken = await this.userRepository.findRefreshToken(token);
     if (!storedToken || storedToken.isRevoked || new Date() > storedToken.expiresAt) {
       throw new UnauthorizedError('Refresh token has expired or been revoked');

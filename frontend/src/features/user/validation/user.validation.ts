@@ -1,10 +1,7 @@
 import { z } from 'zod';
 
 export const userFormSchema = z.object({
-  email: z
-    .string()
-    .min(1, 'Email is required')
-    .email('Please enter a valid email address'),
+  email: z.string().min(1, 'Email is required').email('Please enter a valid email address'),
   firstName: z
     .string()
     .min(1, 'First name is required')

@@ -1,6 +1,6 @@
 /**
  * GLOBAL CONSTANTS Blueprint
- * 
+ *
  * Keep immutable values here (e.g. status codes, regex patterns, configurations, pagination defaults)
  */
 

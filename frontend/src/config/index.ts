@@ -1,6 +1,6 @@
 /**
  * FRONTEND APP ENVIRONMENT CONFIGURATIONS
- * 
+ *
  * Centralize all constants mapped from Vite VITE_ environmental variables.
  */
 export const appConfig = {

@@ -1,6 +1,6 @@
 /**
  * CLIENT DECLARED TYPES INDEX
- * 
+ *
  * Keep global declarations, custom type overrides, or shared API response
  * interfaces here.
  */

@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * DASHBOARD LANDING PAGE
- * 
+ *
  * Central view container template.
  */
 export const Dashboard: React.FC = () => {

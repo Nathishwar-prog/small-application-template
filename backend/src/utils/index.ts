@@ -1,7 +1,7 @@
 /**
  * GENERAL STATELESS UTILITIES
- * 
- * Put standard, pure helper functions here (e.g. date formatters, currency conversions, 
+ *
+ * Put standard, pure helper functions here (e.g. date formatters, currency conversions,
  * math equations, deep clone operations).
  */
 

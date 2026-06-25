@@ -15,6 +15,7 @@ export class TokenUtils {
    */
   public static generateAccessToken(payload: TokenPayload): string {
     return jwt.sign(payload, config.JWT_SECRET, {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       expiresIn: config.JWT_ACCESS_EXPIRATION as any,
     });
   }
@@ -24,6 +25,7 @@ export class TokenUtils {
    */
   public static generateRefreshToken(payload: Omit<TokenPayload, 'permissions'>): string {
     return jwt.sign(payload, config.JWT_REFRESH_SECRET, {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       expiresIn: config.JWT_REFRESH_EXPIRATION as any,
     });
   }
